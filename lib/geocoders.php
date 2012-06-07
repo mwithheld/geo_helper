@@ -548,6 +548,7 @@ class GeoHelperPlaceFinderGeocoder extends GeoHelperGeocoder
             // placefinder may return 0 or more results in result elements
             // grab them all
             $loc = null;
+            if(!isset($obj['ResultSet']['Result'])) return new GeoHelperLocation();
             foreach ($obj['ResultSet']['Result'] as $result) {
                $result = self::extractResult($result);
                if (is_null($loc)) {
